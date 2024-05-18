@@ -5,6 +5,9 @@
                 <div class="alert alert-success" role="alert">
                     <h1 class="mb-0" style="color: green;">Productos</h1>
                 </div>
+                <button @click="newProduct()" class="btn btn-succes mx-2">
+                    <font-awesome-icon icon="plus" />
+                </button>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -22,6 +25,14 @@
                             <td>{{product.price}}</td>
                             <td>{{product.stock}}</td>
                             <td>{{product.nameC}}</td>
+                            <td>
+                                <button @click="deleteProduct(product.id)" class="btn btn-succes mx-2">
+                                    <font-awesome-icon icon="trash" />
+                                </button>
+                                <button @click="editProduct(product.id)" class="btn btn-succes mx-2">
+                                    <font-awesome-icon icon="pencil" />
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -31,11 +42,40 @@
 </template>
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2'
 export default{
     name: 'Product',
     data(){
         return{
             products: []
+        }
+    },
+    methods: {
+        deleteProduct(codigo) {
+            Swal.fire({
+                title: `Do you want to delete the Product with id ${codigo}?`,
+                showCancelButton: true,
+                confirmButtonText: `Delete`,
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below*/
+                if (result.isConfirmed) {
+                    axios.delete(`http://127.0.0.1:8000/api/products/${codigo}`)
+                        .then(response => {
+                            if (response.data.success) {
+                                // Recargar la página
+                                window.location.reload()
+                                Swal.fire('Deleted!!', '', 'success')
+                                this.products = response.data.products
+                            }
+                        })
+                }
+            })
+        },
+        editProduct(id) {
+            this.$router.push({ name: 'EditarProduct', params: { id: `${id}` } });
+        },
+        newProduct() {
+            this.$router.push({ name: 'NewProduct' });
         }
     },
     mounted(){

@@ -49,7 +49,7 @@ export default {
     methods: {
         deletePaymode(codigo) {
             Swal.fire({
-                title: `Do you want to delete the Comuna with id ${codigo}?`,
+                title: `Do you want to delete the paymode with id ${codigo}?`,
                 showCancelButton: true,
                 confirmButtonText: `Delete`,
             }).then((result) => {

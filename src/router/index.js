@@ -4,6 +4,8 @@ import Categories from '../views/categories.vue';
 import EditarCategorie from '../components/categories/EditarCategorie.vue';
 import NewCategorie from '../components/categories/NewCategorie.vue';
 import Products from '../views/products.vue';
+import EditarProduct from '../components/products/EditarProduct.vue';
+import NewProduct from '../components/products/NewProduct.vue';
 import Invoices from '../views/invoices.vue';
 import Details from '../views/details.vue';
 import Paymodes from '../views/paymodes.vue';
@@ -35,6 +37,16 @@ const routes = [{
         path: '/products',
         name: 'Products',
         component: Products
+    },
+    {
+        path: '/editar-product/:id',
+        name: 'EditarProduct',
+        component: EditarProduct
+    },
+    {
+        path: '/add-product/',
+        name: 'NewProduct',
+        component: NewProduct
     },
     {
         path: '/invoices',

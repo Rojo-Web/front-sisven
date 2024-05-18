@@ -50,7 +50,7 @@ export default {
     methods: {
         deleteCategorie(codigo) {
             Swal.fire({
-                title: `Do you want to delete the Comuna with id ${codigo}?`,
+                title: `Do you want to delete the Categoria with id ${codigo}?`,
                 showCancelButton: true,
                 confirmButtonText: `Delete`,
             }).then((result) => {
