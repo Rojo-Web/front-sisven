@@ -16,6 +16,8 @@ import Paymodes from '../views/paymodes.vue';
 import EditarPaymode from '../components/paymodes/EditarPaymode.vue';
 import NewPaymode from '../components/paymodes/NewPaymode.vue';
 import customers from '../views/customers.vue';
+import EditarCustomer from '../components/Customers/EditarCustomer.vue';
+import NewCustomer from '../components/Customers/NewCustomer.vue';
 
 const routes = [{
         path: '/',
@@ -101,7 +103,19 @@ const routes = [{
         path: '/customers',
         name: 'Customers',
         component: customers
-    }, {
+    },
+    {
+        path: '/editar-customers/:id',
+        name: 'EditarCustomer',
+        component: EditarCustomer
+    },
+
+    {
+        path: '/add-customer/',
+        name: 'NewCustomer',
+        component: NewCustomer
+    },
+    {
         path: '/about',
         name: 'about',
         // route level code-splitting
