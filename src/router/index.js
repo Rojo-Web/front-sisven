@@ -10,6 +10,8 @@ import Invoices from '../views/invoices.vue';
 import EditarInvoice from '../components/invoices/EditarInvoice.vue';
 import NewInvoice from '../components/invoices/NewInvoice.vue';
 import Details from '../views/details.vue';
+import EditarDetail from '../components/details/EditarDetail.vue';
+import NewDetail from '../components/details/NewDetail.vue';
 import Paymodes from '../views/paymodes.vue';
 import EditarPaymode from '../components/paymodes/EditarPaymode.vue';
 import NewPaymode from '../components/paymodes/NewPaymode.vue';
@@ -69,6 +71,16 @@ const routes = [{
         path: '/details',
         name: 'Details',
         component: Details
+    },
+    {
+        path: '/editar-detail/:id',
+        name: 'EditarDetail',
+        component: EditarDetail
+    },
+    {
+        path: '/add-detail/',
+        name: 'NewDetail',
+        component: NewDetail
     },
     {
         path: '/paymodes',
