@@ -7,6 +7,8 @@ import Products from '../views/products.vue';
 import EditarProduct from '../components/products/EditarProduct.vue';
 import NewProduct from '../components/products/NewProduct.vue';
 import Invoices from '../views/invoices.vue';
+import EditarInvoice from '../components/invoices/EditarInvoice.vue';
+import NewInvoice from '../components/invoices/NewInvoice.vue';
 import Details from '../views/details.vue';
 import Paymodes from '../views/paymodes.vue';
 import EditarPaymode from '../components/paymodes/EditarPaymode.vue';
@@ -52,6 +54,16 @@ const routes = [{
         path: '/invoices',
         name: 'Invoices',
         component: Invoices
+    },
+    {
+        path: '/editar-invoice/:id',
+        name: 'EditarInvoice',
+        component: EditarInvoice
+    },
+    {
+        path: '/add-invoice/',
+        name: 'NewInvoice',
+        component: NewInvoice
     },
     {
         path: '/details',
